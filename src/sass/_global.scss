@@ -1,0 +1,131 @@
+/*
+Global definitions
+ // variations as made by https://estelle.github.io/snow/#slide9
+*/
+
+
+body .flakes {
+    position:  fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+    
+    
+    
+.flakes {   
+    i {
+	display: inline-block;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	-webkit-transform-origin: left -20px;
+	-webkit-animation-name: falling;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-direction: normal;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 2s;
+	-webkit-animation-fill-mode: none;
+	-webkit-animation-play-state: running;
+	/* or */
+	animation: falling 3s linear 2s infinite; 
+	// background-image: svg-snowflake(rgba(58, 103, 171, 0.75));
+	background-image: svg-snowflake(white);
+	background-repeat: no-repeat;
+    }
+    i:nth-of-type(4n) {
+	height: 60px;
+	width: 60px;
+	transform-origin: right -30px; 
+    }
+    i:nth-of-type(4n+1) {
+	height: 50px;
+	width: 50px;
+	transform-origin: left 30px; 
+    }
+    i:nth-of-type(4n+2) {
+      height: 40px;
+      width: 40px;
+      transform-origin: -30px 0; 
+    }
+    i:nth-of-type(4n+3) {
+      height: 70px;
+      width: 70px;
+      transform-origin: -50px 0; 
+    }
+    i:nth-of-type(4n) {
+       animation-duration: 5.3s;
+       animation-iteration-count: 12;
+       transform-origin: -10px -20px; 
+    }
+    i:nth-of-type(4n+1) {
+       animation-duration: 3.1s;
+       animation-iteration-count: 20;
+       transform-origin: 10px -20px; 
+    }
+    i:nth-of-type(4n+2) {
+       animation-duration: 1.7s;
+       animation-iteration-count: 35;
+       transform-origin: right -20px; 
+    }
+    i:nth-of-type(3n) {
+       animation-delay: 2.3s; 
+    }
+    i:nth-of-type(3n+1) {
+       animation-delay: 1.5s; 
+    }
+    i:nth-of-type(3n+2) {
+       animation-delay: 3.4s; 
+    }
+
+    i:nth-of-type(5n) {
+	animation-timing-function: ease-in-out; 
+    }
+    i:nth-of-type(5n+1) {
+	animation-timing-function: ease-out; 
+    }
+    i:nth-of-type(5n+2) {
+	animation-timing-function: ease; 
+    }
+    i:nth-of-type(5n+3) {
+	animation-timing-function: ease-in; 
+    }
+    i:nth-of-type(5n+4) {
+	animation-timing-function: linear; 
+    }
+    i:nth-of-type(11n) {
+	animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9); 
+    }
+    i:nth-of-type(7n) {
+	opacity: 0.5; }
+    i:nth-of-type(7n+2) {
+	opacity: 0.3; }
+    i:nth-of-type(7n+4) {
+	opacity: 0.7; 
+    }
+    i:nth-of-type(7n+6) {
+	opacity: 0.6;
+	animation-timing-function: ease-in;
+	transform-origin: left 10px; 
+    }
+    i:nth-of-type(7n+1) {
+	opacity: 0.8; 
+    }
+    i {
+	position: static !important;
+    }
+
+}
+@keyframes falling {
+    0% {
+	transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9, 0.9);
+    }
+
+    100% {
+	transform: translate(30px, 1000px) rotate(360deg) scale(1.1, 1.1);
+    }
+}

@@ -1,0 +1,12 @@
+{
+	"name": "RRZE/Let-It-Snow",
+	"description": "Simple x-mas script to let it snow on the website.",
+	"type": "WordPress Plugin",
+	"license": "GNU General Public License v3",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"RRZE\\LetItSnow\\": "includes/"
+		}
+	}
+}
