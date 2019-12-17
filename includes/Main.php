@@ -4,7 +4,7 @@ namespace RRZE\LetItSnow;
 
 defined('ABSPATH') || exit;
 
-// use RRZE\LetItSnow\Settings;
+use RRZE\LetItSnow\Settings;
 use RRZE\LetItSnow\Snowflakes;
 
 /**
@@ -34,10 +34,11 @@ class Main
 	add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
 
 	// Settings-Klasse wird instanziiert.
-	// $settings = new Settings($this->pluginFile);
-	// $settings->onLoaded();
+	 $settings = new Settings($this->pluginFile);
+	 $settings->onLoaded();
 	
-	$snowflakes = new Snowflakes();
+	$snowflakes = new Snowflakes($this->pluginFile, $settings);
+	$snowflakes->onLoaded();
 	
     }
 

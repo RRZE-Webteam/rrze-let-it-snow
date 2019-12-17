@@ -38,7 +38,7 @@ function getHelpTab()
         [
             'id'        => 'rrze-letitsnow-help',
             'content'   => [
-                '<p>' . __('Here comes the Context Help content.', 'rrze-letitsnow') . '</p>'
+                '<p>' . __('THis plugin just lets snow on your website.', 'rrze-letitsnow') . '</p>'
             ],
             'title'     => __('Overview', 'rrze-letitsnow'),
             'sidebar'   => sprintf('<p><strong>%1$s:</strong></p><p><a href="https://blogs.fau.de/webworking">RRZE Webworking</a></p><p><a href="https://github.com/RRZE Webteam">%2$s</a></p>', __('For more information', 'rrze-letitsnow'), __('RRZE Webteam on Github', 'rrze-letitsnow'))
@@ -57,10 +57,7 @@ function getSections()
             'id'    => 'basic',
             'title' => __('Basic Settings', 'rrze-letitsnow')
         ],
-        [
-            'id'    => 'advanced',
-            'title' => __('Advanced Settings', 'rrze-letitsnow')
-        ]
+      
     ];
 }
 
@@ -72,6 +69,7 @@ function getFields()
 {
     return [
         'basic' => [
+	    /*
             [
                 'name'              => 'text_input',
                 'label'             => __('Text Input', 'rrze-letitsnow'),
@@ -106,76 +104,22 @@ function getFields()
                 'desc'  => __('Checkbox description', 'rrze-letitsnow'),
                 'type'  => 'checkbox'
             ],
+            */
             [
-                'name'    => 'multicheck',
-                'label'   => __('Multiple checkbox', 'rrze-letitsnow'),
-                'desc'    => __('Multiple checkbox description.', 'rrze-letitsnow'),
-                'type'    => 'multicheck',
-                'default' => [
-                    'one' => 'one',
-                    'two' => 'two'
-                ],
-                'options'   => [
-                    'one'   => __('One', 'rrze-letitsnow'),
-                    'two'   => __('Two', 'rrze-letitsnow'),
-                    'three' => __('Three', 'rrze-letitsnow'),
-                    'four'  => __('Four', 'rrze-letitsnow')
-                ]
-            ],
-            [
-                'name'    => 'radio',
-                'label'   => __('Radio Button', 'rrze-letitsnow'),
-                'desc'    => __('Radio button description.', 'rrze-letitsnow'),
-                'type'    => 'radio',
-                'options' => [
-                    'yes' => __('Yes', 'rrze-letitsnow'),
-                    'no'  => __('No', 'rrze-letitsnow')
-                ]
-            ],
-            [
-                'name'    => 'selectbox',
-                'label'   => __('Dropdown', 'rrze-letitsnow'),
-                'desc'    => __('Dropdown description.', 'rrze-letitsnow'),
+                'name'    => 'animation-duration',
+                'label'   => __('Animation Duration', 'rrze-letitsnow'),
+                'desc'    => __('How many snow will come.', 'rrze-letitsnow'),
                 'type'    => 'select',
-                'default' => 'no',
+                'default' => 'infinite',
                 'options' => [
-                    'yes' => __('Yes', 'rrze-letitsnow'),
-                    'no'  => __('No', 'rrze-letitsnow')
+                    'infinite' => __('Infinite snowflakes', 'rrze-letitsnow'),
+		  '10'  => __('560 Snowflakes', 'rrze-letitsnow'),
+                    '20'  => __('1.160 Snowflakes', 'rrze-letitsnow'),
+		  '100'  => __('5.600 Snowflakes', 'rrze-letitsnow'),
+		  '1000'  => __('56.000 Snowflakes', 'rrze-letitsnow')
                 ]
             ]
         ],
-        'advanced' => [
-            [
-                'name'    => 'color',
-                'label'   => __('Color', 'rrze-letitsnow'),
-                'desc'    => __('Color description.', 'rrze-letitsnow'),
-                'type'    => 'color',
-                'default' => ''
-            ],
-            [
-                'name'    => 'password',
-                'label'   => __('Password', 'rrze-letitsnow'),
-                'desc'    => __('Password description.', 'rrze-letitsnow'),
-                'type'    => 'password',
-                'default' => ''
-            ],
-            [
-                'name'    => 'wysiwyg',
-                'label'   => __('Advanced Editor', 'rrze-letitsnow'),
-                'desc'    => __('Advanced Editor description.', 'rrze-letitsnow'),
-                'type'    => 'wysiwyg',
-                'default' => ''
-            ],
-            [
-                'name'    => 'file',
-                'label'   => __('File', 'rrze-letitsnow'),
-                'desc'    => __('File description.', 'rrze-letitsnow'),
-                'type'    => 'file',
-                'default' => '',
-                'options' => [
-                    'button_label' => __('Choose an Image', 'rrze-letitsnow')
-                ]
-            ]
-        ]
+       
     ];
 }

@@ -10,7 +10,8 @@ const
     babel = require('gulp-babel'),
     bump = require('gulp-bump'),
     semver = require('semver'),
-    info = require('./package.json')
+    info = require('./package.json'),
+    touch = require('gulp-touch-cmd')
 ;
 
 function css() {
@@ -20,35 +21,48 @@ function css() {
         .pipe(sass())
         .pipe(postcss([autoprefixer()]))
         .pipe(cleancss())
-        .pipe(dest('./css'));
+        .pipe(dest('./css'))
+	.pipe(touch());
+}
+function cssdev() {
+    return src('./src/sass/*.scss', {
+            sourcemaps: true
+        })
+        .pipe(sass())
+        .pipe(postcss([autoprefixer()]))
+        .pipe(dest('./css'))
+	.pipe(touch());
 }
 
 function js() {
     return src('./src/js/*.js')
-        .pipe(babel({
+	.pipe(babel({
             presets: ['@babel/env']
-        }))
-        .pipe(uglify())
-        .pipe(dest('./js'))
+	}))
+	.pipe(uglify())
+	.pipe(dest('./js'))
+	.pipe(touch());
 }
 
 function patchPackageVersion() {
     var newVer = semver.inc(info.version, 'patch');
-    return src(['./package.json'])
+    return src(['./package.json', './' + info.main])
         .pipe(bump({
             version: newVer
         }))
-        .pipe(dest('./'));
+        .pipe(dest('./'))
+	.pipe(touch());
+};
+function prereleasePackageVersion() {
+    var newVer = semver.inc(info.version, 'prerelease');
+    return src(['./package.json', './' + info.main])
+        .pipe(bump({
+            version: newVer
+        }))
+	.pipe(dest('./'))
+	.pipe(touch());;
 };
 
-function patchPluginVersion() {
-    var newVer = semver.inc(info.version, 'patch');
-    return src('./' + info.main)
-        .pipe(bump({
-            version: newVer
-        }))
-        .pipe(dest('./'));
-};
 
 function startWatch() {
     watch('./src/sass/*.scss', css);
@@ -57,5 +71,7 @@ function startWatch() {
 
 exports.css = css;
 exports.js = js;
-exports.patchversion = series(patchPackageVersion, patchPluginVersion);
+exports.dev = series(js, cssdev, prereleasePackageVersion);
+exports.build = series(js, css, patchPackageVersion);
+
 exports.default = startWatch;
