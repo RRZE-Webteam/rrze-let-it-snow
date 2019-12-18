@@ -4,7 +4,7 @@
 Plugin Name:     RRZE Let it snow
 Plugin URI:      https://gitlab.rrze.fau.de/rrze-webteam/rrze-letitsnow
 Description:     Simple x-mas script to let it snow on the website.
-Version:         1.0.2
+Version:         1.0.3
 Author:          RRZE Webteam
 Author URI:      https://blogs.fau.de/webworking/
 License:         GNU General Public License v3
@@ -22,7 +22,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use RRZE\LetItSnow\Main;
 
-const RRZE_PHP_VERSION = '7.4';
+const RRZE_PHP_VERSION = '7.2';
 const RRZE_WP_VERSION = '5.3';
 
 // Registriert die Plugin-Funktion, die bei Aktivierung des Plugins ausgeführt werden soll.

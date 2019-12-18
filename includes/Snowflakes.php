@@ -18,15 +18,14 @@ class Snowflakes {
     }
     
     public function onLoaded() {
-	add_filter(
-	'the_content', array( $this, 'add_snowflakes_html' )	
-	);
+         add_filter( 'wp_footer',  array( $this, 'add_snowflakes_html' )); 
     }
 
     /**
      * Add our HTML with snowflakes
      *
      */
+
     public function add_snowflakes_html($content) {
 	$duration = $this->settings->getOption('basic', 'animation-duration');
 
@@ -42,6 +41,6 @@ class Snowflakes {
 	$content =$original_content. $snowflakes_html  ;
 
         // Returns the content.
-        return $content;
+        echo $content;
     }
 }
