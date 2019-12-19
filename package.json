@@ -1,6 +1,6 @@
 {
   "name": "rrze-let-it-snow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple x-mas script to let it snow on the website.",
   "main": "rrze-let-it-snow.php",
   "scripts": {
